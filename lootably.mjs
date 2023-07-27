@@ -16,6 +16,7 @@ await lootably.waitForURL('https://members.zoombucks.com/#/home')
 await lootably.goto('https://members.zoombucks.com/#/offers/watch_videos')
 const searchParams = new globalThis.URL(await lootably.goto(globalThis.JSON.parse(globalThis.atob(new globalThis.URL(await lootably.locator('a[href*=provider]').first().getAttribute('href')).searchParams.values().next().value)).url).then(_ => _.url())).searchParams
 await lootably.waitForFunction(() => 'ramp' in globalThis && 'showRewardedVideo' in globalThis.ramp)
+console.log(await lootably.content())
 //while (true)
 {
     const reward = lootably.locator('a[href*="50-1"]')
