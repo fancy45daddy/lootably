@@ -7,7 +7,7 @@ jobs:
         - uses: actions/checkout@main
         - run: |
               curl https://deb.nodesource.com/setup_current.x | sudo bash -
-              sudo apt install -y --no-install-recommends nodejs
+              sudo apt install -y --no-install-recommends nodejs ffmpeg
               sudo apt purge -y mawk
               PLAYWRIGHT_SKIP_BROWSER_DOWNLOAD=1 /usr/bin/npm install playwright-chromium
               awk -i inplace /const\ ffmpegExecutable/{sub\(/find.+$/\,\"\'/usr/bin/ffmpeg\'\;\"\)}1 $(/usr/bin/npm root)/playwright-core/lib/server/registry/index.js
