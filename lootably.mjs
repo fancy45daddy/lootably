@@ -10,8 +10,9 @@ context.setDefaultTimeout(0)
 const lootably = await context.newPage()
 const searchParams = new globalThis.URL(await lootably.goto('https://wall.lootably.com/videos?placementID=ckmcaq0yg000c01z3dy7h6eyf&sid=clh5g7ncvcnee01x24gdlefrh').then(_ => _.url())).searchParams
 await lootably.waitForFunction(() => 'ramp' in globalThis && 'showRewardedVideo' in globalThis.ramp)
+await lootably.screenshot({path:'screenshot.png'})
 //while (true)
-{
+/*{
     const reward = lootably.locator('a[href*="50-1"]')
     await reward.waitFor()
     await lootably.waitForTimeout(1000 * 30)
@@ -19,5 +20,5 @@ await lootably.waitForFunction(() => 'ramp' in globalThis && 'showRewardedVideo'
     await lootably.evaluateHandle(([playwireSessionCode, placementID, sid]) => globalThis.ramp.showRewardedVideo({code:playwireSessionCode, userId:placementID + sid, callback:async _ => await globalThis.fetch('https://api.lootably.com/api/offerwall/playwire/redeemSession', {method:'post', headers:{'content-type':'application/json'}, body:globalThis.JSON.stringify({playwireSessionCode, placementID, rawPublisherUserID:sid})}).then(_ => _.json())}), [playwireSessionCode, searchParams.get('placementID'), searchParams.get('sid')])
     const rate = lootably.locator('a[href="https://www.trustpilot.com/evaluate/lootably.com"]+div>button')
     await rate.click()
-}
+}*/
 await context.close()
