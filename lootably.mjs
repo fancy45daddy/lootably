@@ -5,7 +5,6 @@ import process from 'process'
 import {promises as fs} from 'fs'
 import os from 'os'
 
-const lootably = await context.newPage()
 const context = await playwright.chromium.launchPersistentContext(await fs.mkdtemp(path.join(os.tmpdir(), 'pal')), {channel:'chrome', args:['--disable-blink-features=AutomationControlled', '--start-maximized'], headless:false, viewport:null})//default_args https://github.com/microsoft/playwright/blob/5faf6f9e69c2148e94c81675fb636eb31a02b5e7/src%2Fserver%2Fchromium%2Fchromium.ts#L78
 context.setDefaultTimeout(0)
 const lootably = await context.newPage()
