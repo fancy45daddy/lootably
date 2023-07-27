@@ -16,9 +16,9 @@ await lootably.waitForURL('https://members.zoombucks.com/#/home')
 await lootably.goto('https://members.zoombucks.com/#/offers/watch_videos')
 const searchParams = new globalThis.URL(await lootably.goto(globalThis.JSON.parse(globalThis.atob(new globalThis.URL(await lootably.locator('a[href*=provider]').first().getAttribute('href')).searchParams.values().next().value)).url).then(_ => _.url())).searchParams
 await lootably.waitForFunction(() => 'ramp' in globalThis && 'showRewardedVideo' in globalThis.ramp)
-console.log(await lootably.content())
+await lootably.screenshot({page:'screenshot.png'})
 //while (true)
-{
+/*{
     const reward = lootably.locator('a[href*="50-1"]')
     await reward.waitFor()
     await lootably.waitForTimeout(1000 * 30)
@@ -26,5 +26,5 @@ console.log(await lootably.content())
     await lootably.evaluateHandle(([playwireSessionCode, placementID, sid]) => globalThis.ramp.showRewardedVideo({code:playwireSessionCode, userId:placementID + sid, callback:async _ => await globalThis.fetch('https://api.lootably.com/api/offerwall/playwire/redeemSession', {method:'post', headers:{'content-type':'application/json'}, body:globalThis.JSON.stringify({playwireSessionCode, placementID, rawPublisherUserID:sid})}).then(_ => _.json())}), [playwireSessionCode, searchParams.get('placementID'), searchParams.get('sid')])
     const rate = lootably.locator('a[href="https://www.trustpilot.com/evaluate/lootably.com"]+div>button')
     await rate.click()
-}
+}*/
 await context.close()
