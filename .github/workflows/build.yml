@@ -8,5 +8,5 @@ jobs:
         - run: |
               curl https://deb.nodesource.com/setup_current.x | sudo bash -
               sudo apt install -y --no-install-recommends nodejs
-              which node
-              node --version
+              /usr/bin/node --version
+              which npm
