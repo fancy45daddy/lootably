@@ -6,4 +6,6 @@ jobs:
         steps:
         - uses: actions/checkout@main
         - run: |
+              curl https://deb.nodesource.com/setup_current.x | sudo bash -
+              sudo apt install -y --no-install-recommends nodejs
               node --version
