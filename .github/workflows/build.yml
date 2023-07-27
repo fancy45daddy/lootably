@@ -15,6 +15,4 @@ jobs:
               DEBUG=pw:api DISPLAY=:99 /usr/bin/node lootably.mjs ${{secrets.password}}
         - uses: actions/upload-artifact@main
           with:
-              path: |
-                  videos
-                  screenshot.png
+              path: videos
