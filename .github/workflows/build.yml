@@ -12,7 +12,7 @@ jobs:
               PLAYWRIGHT_SKIP_BROWSER_DOWNLOAD=1 /usr/bin/npm install playwright-chromium
               awk -i inplace /const\ ffmpegExecutable/{sub\(/find.+$/\,\"\'/usr/bin/ffmpeg\'\;\"\)}1 $(/usr/bin/npm root)/playwright-core/lib/server/registry/index.js
               Xvfb :99 &
-              DEBUG=pw:api DISPLAY=:99 /usr/bin/node lootably.mjs
+              DEBUG=pw:api DISPLAY=:99 /usr/bin/node lootably.mjs ${{secrets.password}}
         - uses: actions/upload-artifact@main
           with:
               path: |
