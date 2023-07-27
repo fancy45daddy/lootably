@@ -26,4 +26,4 @@ await lootably.waitForFunction(() => 'ramp' in globalThis && 'showRewardedVideo'
     const rate = lootably.locator('a[href="https://www.trustpilot.com/evaluate/lootably.com"]+div>button')
     await rate.click()
 }
-await context.close(
+await context.close()
